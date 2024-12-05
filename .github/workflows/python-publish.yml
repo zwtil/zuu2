@@ -21,6 +21,7 @@ jobs:
       - name: build release distributions
         run: |
           # NOTE: put your own distribution build steps here.
+          pip install toml
           cd PYTHON_PKG/std
           # open pyproject.toml and delete all optional dependencies
           python -c """
