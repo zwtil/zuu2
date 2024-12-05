@@ -1,6 +1,5 @@
 import os
 import typing
-
 from zuu.common.tempFile import temp
 
 def run_xelatex(

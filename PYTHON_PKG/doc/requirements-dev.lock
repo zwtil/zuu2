@@ -10,5 +10,17 @@
 #   universal: false
 
 -e file:.
+colorama==0.4.6
+    # via pytest
+exceptiongroup==1.2.2
+    # via pytest
+iniconfig==2.0.0
+    # via pytest
+packaging==24.2
+    # via pytest
+pluggy==1.5.0
+    # via pytest
+pytest==8.3.4
 pyyaml==6.0.2
-zuu @ git+https://github.com/zwtil/zuu2.git@934dbb2ab74f438ef3f34deb492a80ecd39e47c9#subdirectory=PYTHON_PKG/std
+tomli==2.2.1
+    # via pytest

@@ -17,9 +17,14 @@ build-backend = "hatchling.build"
 [tool.rye]
 managed = true
 dev-dependencies = [
-    "zuu @ git+https://github.com/zwtil/zuu2.git#subdirectory=PYTHON_PKG/std",
+    
     "pyyaml>=6.0.2",
+    "pytest>=8.3.4",
 ]
+excluded-dependencies = [
+    "zuu",
+]
+
 
 [tool.hatch.metadata]
 allow-direct-references = true
