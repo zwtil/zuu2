@@ -28,11 +28,10 @@ cli = [
 ext1 = [
     "zuu-ext1 @ git+https://github.com/zwtil/zuu2.git#subdirectory=PYTHON_PKG/ext1",
 ]
- 
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
-
 [tool.rye]
 managed = true
 dev-dependencies = [
