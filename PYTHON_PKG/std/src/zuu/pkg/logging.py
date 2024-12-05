@@ -1,6 +1,7 @@
 import logging
 import sys
 
+
 def basic_debug(level=10):
     """
     Sets up basic logging configuration with the specified logging level and stream.
