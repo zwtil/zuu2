@@ -15,9 +15,21 @@ for plain package
 pip install zuu
 ```
 
-for sub packages
+for package with additional supports
 ```bash
-pip install zuu[{va, app, cli, ext1, ...}]
+pip install git+https://github.com/zwtil/zuu2.git#subdirectory=PYTHON_PKG/std
+```
+
+to install sub packages
+
+pip method
+```bash
+pip install git+https://github.com/zwtil/zuu2.git#subdirectory=PYTHON_PKG/{sub_pkg}
+```
+
+rye method
+```bash
+rye add zuu[{sub packages}] --git git+https://github.com/zwtil/zuu2.git#subdirectory=PYTHON_PKG/std
 ```
 
 ## Project Layout

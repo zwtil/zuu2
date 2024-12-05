@@ -22,7 +22,23 @@ jobs:
         run: |
           # NOTE: put your own distribution build steps here.
           cd PYTHON_PKG/std
-          
+          # open pyproject.toml and delete all optional dependencies
+          python -c """
+          import toml
+          with open('pyproject.toml', 'r') as f:
+              data = toml.load(f)
+              
+          # Filter out optional dependencies containing 'git'
+          if 'project' in data and 'optional-dependencies' in data['project']:
+              filtered_deps = {
+                  key: value for key, value in data['project']['optional-dependencies'].items()
+                  if not any('git' in str(dep) for dep in value)
+              }
+              data['project']['optional-dependencies'] = filtered_deps
+
+          with open('pyproject.toml', 'w') as f:
+              toml.dump(data, f)
+          """
           python -m pip install build
           python -m build
       - name: upload windows dists
@@ -43,7 +59,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: release-dists
-          path: dist/
+          path: PYTHON_PKG/std/dist/
 
       - name: Publish release distributions to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
