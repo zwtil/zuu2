@@ -1,11 +1,15 @@
 [project]
 name = "zuu-va"
-version = "0.1.0"
-description = "Add your description here"
+version = "0.1.1"
+description = "zuu submodule for vision and automation"
 authors = [
     { name = "ZackaryW", email = "36378555+ZackaryW@users.noreply.github.com" }
 ]
-dependencies = []
+dependencies = [
+    "pygetwindow>=0.0.9",
+    "psutil>=6.1.0",
+    
+]
 requires-python = ">= 3.8"
 
 [build-system]
@@ -14,7 +18,10 @@ build-backend = "hatchling.build"
 
 [tool.rye]
 managed = true
-dev-dependencies = []
+dev-dependencies = [
+    "pytest>=8.3.4",
+    "zuu @ git+https://github.com/zwtil/zuu2.git#subdirectory=PYTHON_PKG/std",
+]
 
 [tool.hatch.metadata]
 allow-direct-references = true
