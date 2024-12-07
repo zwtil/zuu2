@@ -10,3 +10,5 @@
 #   universal: false
 
 -e file:.
+pyyaml==6.0.2
+    # via python-snippets

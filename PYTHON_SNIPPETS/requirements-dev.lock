@@ -19,10 +19,15 @@ packaging==24.2
     # via pytest
 pluggy==1.5.0
     # via pytest
+psutil==6.1.0
+    # via zuu-va
 pygetwindow==0.0.9
+    # via zuu-va
 pyrect==0.2.0
     # via pygetwindow
 pytest==8.3.4
-zuu @ git+https://github.com/zwtil/zuu2.git@5873c4d743c1b77d281c052743624e9a17281cba#subdirectory=PYTHON_PKG/std
-zuu-va @ git+https://github.com/zwtil/zuu2.git@5873c4d743c1b77d281c052743624e9a17281cba#subdirectory=PYTHON_PKG/va
+pyyaml==6.0.2
+    # via python-snippets
+zuu @ git+https://github.com/zwtil/zuu2.git@d4cd73316c392a01d02610c9cffde434b716602b#subdirectory=PYTHON_PKG/std
+zuu-va @ git+https://github.com/zwtil/zuu2.git@d4cd73316c392a01d02610c9cffde434b716602b#subdirectory=PYTHON_PKG/va
     # via zuu
