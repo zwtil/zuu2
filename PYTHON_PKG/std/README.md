@@ -14,6 +14,10 @@ for plain package
 ```bash
 pip install zuu
 ```
+install with features
+```bash
+pip install zuu[io]
+```
 
 for package with additional supports
 ```bash
@@ -29,7 +33,7 @@ pip install git+https://github.com/zwtil/zuu2.git#subdirectory=PYTHON_PKG/{sub_p
 
 rye method
 ```bash
-rye add zuu[{sub packages}] --git git+https://github.com/zwtil/zuu2.git#subdirectory=PYTHON_PKG/std
+rye add zuu[{sub packages}] --git https://github.com/zwtil/zuu2.git#subdirectory=PYTHON_PKG/std
 ```
 
 ## Project Layout
@@ -40,4 +44,4 @@ rye add zuu[{sub packages}] --git git+https://github.com/zwtil/zuu2.git#subdirec
 | cli  | common      |          |
 | doc  | app, common |          |
 | ext1 | pkg         |          |
-| va   | pkg         |          |
+| va   | pkg, common |          |
