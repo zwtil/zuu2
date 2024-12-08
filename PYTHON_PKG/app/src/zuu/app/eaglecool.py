@@ -58,6 +58,19 @@ def update_library_pathes(pathes: typing.Union[dict, typing.List[str]]):
     with open(os.path.join(settings_path, "settings.json"), "w") as f:
         json.dump(settings, f)
 
+
+def get_library_pathes():
+    with open(settings_path, "r") as f:
+        settings = json.load(f)
+
+    return settings["libraryHistory"]
+
+def get_settings():
+    with open(settings_path, "r") as f:
+        settings = json.load(f)
+
+    return settings
+
 def add_library_path(path: str):
     with open(settings_path, "r") as f:
         settings = json.load(f)
@@ -78,3 +91,31 @@ def is_eagle_library(path : str):
     if not os.path.exists(os.path.join(path, "metadata.json")):
         return False
 
+    if not os.path.exists(os.path.join(path, "backup")):
+        return False
+
+    if not os.path.exists(os.path.join(path, "images")):
+        return False
+
+    return True
+
+def import_all_library_in_folder(folder : str, echo : bool = True):
+    settings = get_settings()
+
+    for path in os.listdir(folder):
+        path= os.path.abspath(os.path.join(folder, path))
+        if not os.path.isdir(os.path.join(folder, path)):
+            continue
+
+        if not is_eagle_library(os.path.join(folder, path)):
+            continue
+
+        if echo:
+            print(f"Importing library: {path}")
+
+        if path in settings["libraryHistory"]:
+            continue
+
+        settings["libraryHistory"].append(path)
+
+    update_library_pathes(settings)
