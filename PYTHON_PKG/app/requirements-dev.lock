@@ -33,5 +33,4 @@ tomli==2.2.1
     # via pytest
 urllib3==2.2.3
     # via requests
-zuu @ git+https://github.com/zwtil/zuu2.git@111e52a53d0a63ec79a46b7a6f2b87e2da92a577#subdirectory=PYTHON_PKG/std
-    # via zuu-app
+zuu @ git+https://github.com/zwtil/zuu2.git@a6a1e555d30aca52e0adbb67b0ffa4f14130d121#subdirectory=PYTHON_PKG/std
