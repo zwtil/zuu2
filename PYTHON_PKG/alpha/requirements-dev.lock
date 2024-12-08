@@ -12,8 +12,6 @@
 -e file:.
 colorama==0.4.6
     # via pytest
-exceptiongroup==1.2.2
-    # via pytest
 iniconfig==2.0.0
     # via pytest
 packaging==24.2
@@ -22,5 +20,4 @@ pluggy==1.5.0
     # via pytest
 pytest==8.3.4
 readchar==4.2.1
-tomli==2.2.1
-    # via pytest
+zuu @ git+https://github.com/zwtil/zuu2.git@a6a1e555d30aca52e0adbb67b0ffa4f14130d121#subdirectory=PYTHON_PKG/std

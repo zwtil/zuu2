@@ -1,6 +1,7 @@
 import typing
 import readchar as readchar
 
+
 class TerminalSelection:
     """
     A class that provides a terminal selection user interface.
