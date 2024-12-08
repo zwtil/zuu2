@@ -3,10 +3,14 @@ import time
 import json
 import typing
 
-def new_ver4_library(path: str):
-    os.makedirs(path, exist_ok=True)
-
+def new_ver4_library(path: str, make_dirs: bool = True):
+    if make_dirs:
+        os.makedirs(path, exist_ok=True)
+    
     assert os.path.isdir(path)
+
+    os.makedirs(os.path.join(path, "backup"), exist_ok=True)
+    os.makedirs(os.path.join(path, "images"), exist_ok=True)
 
     if not os.path.exists(os.path.join(path, "tags.json")):
         with open(os.path.join(path, "tags.json"), "w") as f:
@@ -69,3 +73,8 @@ def remove_library_path(path: str):
     settings["libraryHistory"].remove(path)
 
     update_library_pathes(settings)
+
+def is_eagle_library(path : str):
+    if not os.path.exists(os.path.join(path, "metadata.json")):
+        return False
+
