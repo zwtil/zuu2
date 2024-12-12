@@ -37,11 +37,11 @@ rye add zuu[{sub packages}] --git https://github.com/zwtil/zuu2.git#subdirectory
 ```
 
 ## Project Layout
-| pkg  |    uses     | reserved |
-| ---- | ----------- | -------- |
-| std  | common, pkg | io       |
-| app  | app         |          |
-| cli  | common      |          |
-| doc  | app, common |          |
-| ext1 | pkg         |          |
-| va   | pkg, common |          |
+| pkg  |    uses     |  reserved  |
+| ---- | ----------- | ---------- |
+| std  | common, pkg | io, winusr |
+| app  | app         |            |
+| cli  | common      |            |
+| doc  | app, common |            |
+| ext1 | pkg         |            |
+| va   | pkg, common |            |
