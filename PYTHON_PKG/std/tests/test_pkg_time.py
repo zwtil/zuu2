@@ -22,7 +22,7 @@ class TestRemainingTime:
         current_time = time.localtime()
         past_time = f"{(current_time.tm_hour - 1) % 12}:{current_time.tm_min}pm"
         result = remaining_time(past_time)
-        assert result
+        assert result is None
 
     def test_remaining_time_past_time_24_hour_format(self):
         current_time = time.localtime()
