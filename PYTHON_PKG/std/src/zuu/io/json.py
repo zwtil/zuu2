@@ -18,7 +18,7 @@ class Json:
         if "indent" not in kwargs:
             kwargs["indent"] = 2
         with open(path, "w", encoding="utf-8") as f:
-            json.dump(data, f, ensure_ascii=utf8, **kwargs)
+            json.dump(data, f, ensure_ascii=(not utf8), **kwargs)
 
     @staticmethod
     def update(path: str, data: dict | list, utf8: bool = True, **kwargs):
