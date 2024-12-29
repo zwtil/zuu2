@@ -8,37 +8,35 @@ import os
 
 class Json:
     @staticmethod
-    def load(path: str) -> dict | list:
-        with open(path, "r") as f:
-            return json.load(f)
+    def load(path: str, **kwargs) -> dict | list:
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f, **kwargs)
 
     @staticmethod
-    def dump(path: str, data: dict | list, utf8: bool = True):
-        with open(path, "w") as f:
-            json.dump(data, f, ensure_ascii=utf8)
+    def dump(path: str, data: dict | list, utf8: bool = True, **kwargs):
+        assert "ensure_ascii" not in kwargs, "ensure_ascii is not allowed"
+        if "indent" not in kwargs:
+            kwargs["indent"] = 2
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=utf8, **kwargs)
 
     @staticmethod
-    def update(path: str, data: dict | list, utf8: bool = True):
-        with open(path, "r") as f:
-            old = json.load(f)
-
+    def update(path: str, data: dict | list, utf8: bool = True, **kwargs):
+        old = Json.load(path, **kwargs)
         old.update(data)
 
-        with open(path, "w") as f:
-            json.dump(old, f, ensure_ascii=utf8)
+        Json.dump(path, old, utf8=utf8, **kwargs)
 
     @staticmethod
-    def append(path: str, data: dict | list, utf8: bool = True):
-        with open(path, "r") as f:
-            old = json.load(f)
+    def append(path: str, data: dict | list, utf8: bool = True, **kwargs):
+        old = Json.load(path, **kwargs)
 
         if isinstance(old, list):
             old.extend(data)
         else:
             old.update(data)
 
-        with open(path, "w") as f:
-            json.dump(old, f, ensure_ascii=utf8)
+        Json.dump(path, old, utf8=utf8, **kwargs)
 
     @staticmethod
     def touch(path: str, default: dict | list = {}):

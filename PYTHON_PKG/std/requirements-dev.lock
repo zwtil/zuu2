@@ -10,8 +10,14 @@
 #   universal: false
 
 -e file:.
+certifi==2024.12.14
+    # via requests
+charset-normalizer==3.4.1
+    # via requests
 colorama==0.4.6
     # via pytest
+idna==3.10
+    # via requests
 iniconfig==2.0.0
     # via pytest
 orjson==3.10.12
@@ -21,10 +27,26 @@ packaging==24.2
 pillow==11.0.0
 pluggy==1.5.0
     # via pytest
+psutil==6.1.1
+    # via zuu-va
+pygetwindow==0.0.9
+    # via zuu-va
+pyrect==0.2.0
+    # via pygetwindow
 pytest==8.3.4
 pyyaml==6.0.2
     # via zuu
+requests==2.32.3
+    # via zuu-app
 toml==0.10.2
     # via zuu
-zuu-va @ git+https://github.com/zwtil/zuu2.git@4f86c7c91790883ed0895bc5a59859842df1a599#subdirectory=PYTHON_PKG/va
+urllib3==2.3.0
+    # via requests
+zuu-app @ git+https://github.com/zwtil/zuu2.git@d651768f19d1bd2e96d52f7a8cb11b92429a7a9a#subdirectory=PYTHON_PKG/app
+    # via zuu
+zuu-cli @ git+https://github.com/zwtil/zuu2.git@d651768f19d1bd2e96d52f7a8cb11b92429a7a9a#subdirectory=PYTHON_PKG/cli
+    # via zuu
+zuu-ext1 @ git+https://github.com/zwtil/zuu2.git@d651768f19d1bd2e96d52f7a8cb11b92429a7a9a#subdirectory=PYTHON_PKG/ext1
+    # via zuu
+zuu-va @ git+https://github.com/zwtil/zuu2.git@d651768f19d1bd2e96d52f7a8cb11b92429a7a9a#subdirectory=PYTHON_PKG/va
     # via zuu
